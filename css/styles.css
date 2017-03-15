@@ -1,9 +1,10 @@
-.icon {
-  max-width: 150px;
-  margin: 0 auto;
-  display: block;
+.topbar {
+    background-color: #4c5fab;
+    color: rgba(255,255,255,0.90);
+    font-weight: bold;
 }
 
-.services section {
-  text-align: center;
+.topbar-content {
+    line-height: 33px;
+    font-size: 13px;
 }
