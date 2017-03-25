@@ -194,4 +194,42 @@ ul.get-connected li a:hover
     color: #ffffff;
 }
 
+.about-content h3
+{
+    font-size: 20px;
+}
+
+.about-link
+{
+    text-align: right;
+}
+
+.about-link a
+{
+    color: #fff; 
+    text-decoration: underline;
+}
+
+.achievements
+{
+    position: relative;
+    top: -90px;
+    background: url("../images/bigroad.jpg")
+}
+
+.achievements-container
+{
+    padding-top: 80px;
+    padding-bottom: 114px;
+}
+
+.achievements-box {
+    background-color: #FFF;
+    font-size: 14px;
+    color: #9d1e63;
+    opacity: 0.9;
+    padding-top: 20px;
+    min-height: 239px;
+}
+
 /* /Content */
