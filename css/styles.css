@@ -145,9 +145,7 @@ ul.get-connected li a:hover
 /* /Carousel */
 
 /* Content */
-
-
-
+/* IS - Inndustry Solutions */
 .main-is {
     background-color: #e6e6e6;
     position: relative;
@@ -179,7 +177,8 @@ ul.get-connected li a:hover
     color: #4b5eab; 
     text-decoration: underline;
 }
-
+/* /IS - Inndustry Solutions */
+/* About */
 .about
 {
     position: relative;
@@ -209,7 +208,8 @@ ul.get-connected li a:hover
     color: #fff; 
     text-decoration: underline;
 }
-
+/* /About */
+/* Achievements */
 .achievements
 {
     position: relative;
@@ -244,7 +244,8 @@ ul.get-connected li a:hover
 .achievements-box-bottom {
         text-align: center;
     }    
-
+/* /Achievements */
+/* Customers */
 .customers {
     position: relative;
     top: -90px;
@@ -275,4 +276,45 @@ ul.get-connected li a:hover
     max-width: 204px;
     max-height: 84px;
 }
+/* /Customers */
+
+/* multi-item-carousel */
+
+.multi-item-carousel .carousel-inner > .item {
+  -webkit-transition: 500ms ease-in-out left;
+  transition: 500ms ease-in-out left;
+}
+.multi-item-carousel .carousel-inner .active.left {
+  left: -33%;
+}
+.multi-item-carousel .carousel-inner .active.right {
+  left: 33%;
+}
+.multi-item-carousel .carousel-inner .next {
+  left: 33%;
+}
+.multi-item-carousel .carousel-inner .prev {
+  left: -33%;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .multi-item-carousel .carousel-inner > .item {
+    -webkit-transition: 500ms ease-in-out left;
+    transition: 500ms ease-in-out left;
+    -webkit-transition: 500ms ease-in-out all;
+    transition: 500ms ease-in-out all;
+    -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+    -webkit-transform: none!important;
+            transform: none!important;
+  }
+}
+.multi-item-carousel .carouse-control.left,
+.multi-item-carousel .carouse-control.right {
+  background-image: none;
+}
+
+
+
+/* /multi-item-carousel */
+
 /* /Content */
