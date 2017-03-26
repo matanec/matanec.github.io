@@ -270,4 +270,9 @@ ul.get-connected li a:hover
     color: #4c5fab;
     text-decoration: underline;
 }
+
+.customer-item-img {
+    max-width: 204px;
+    max-height: 84px;
+}
 /* /Content */
