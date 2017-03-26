@@ -232,4 +232,42 @@ ul.get-connected li a:hover
     min-height: 239px;
 }
 
+.achievements-box-top {
+        text-align: center;
+    }
+
+.achievements-box-middle {
+        text-align: center;
+        font-size: 74px;
+    }  
+
+.achievements-box-bottom {
+        text-align: center;
+    }    
+
+.customers {
+    position: relative;
+    top: -90px;
+    background: linear-gradient(to bottom, #999 0, #e6e6e6 7px, #e6e6e6 100%);
+}
+
+.customers-container{
+    min-height: 279px;
+}
+
+.customers-content h2 {
+    color: #4c5fab;
+    font-size: 20px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+}
+
+.customers-link {
+    text-align: right;
+}
+
+.customers-link a {
+    color: #4c5fab;
+    text-decoration: underline;
+}
 /* /Content */
