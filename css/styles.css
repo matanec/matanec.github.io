@@ -163,6 +163,7 @@ ul.get-connected li a:hover
     font-size: 18px;
     text-align: center;
     font-weight: 900;
+    padding-bottom: 15px;
 }
 
 .is-insurance { color: #4b5eaa; }
