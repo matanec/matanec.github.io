@@ -1,9 +1,14 @@
-// Instantiate the Bootstrap tooltip
+// Instantiate Bootstrap tooltip
 $(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 
-// Instantiate the Bootstrap carousel
+// Instantiate owl carousel
+$(function(){
+  $(".owl-carousel").owlCarousel();
+});
+
+// Instantiate Bootstrap carousel
 $('.multi-item-carousel').carousel({
   interval: false
 });
