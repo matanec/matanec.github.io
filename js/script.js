@@ -3,9 +3,9 @@ $(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 
-// Instantiate owl carousel
+// Instantiate owl carousel for customers
 $(function(){
-  $(".owl-carousel").owlCarousel();
+  $("#customerCarousel").owlCarousel();
 });
 
 // Instantiate Bootstrap carousel
