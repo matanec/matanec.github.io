@@ -246,6 +246,7 @@ ul.get-connected li a:hover
         text-align: center;
     }    
 /* /Achievements */
+
 /* Customers */
 .customers {
     position: relative;
@@ -279,43 +280,5 @@ ul.get-connected li a:hover
 }
 /* /Customers */
 
-/* multi-item-carousel */
-
-.multi-item-carousel .carousel-inner > .item {
-  -webkit-transition: 500ms ease-in-out left;
-  transition: 500ms ease-in-out left;
-}
-.multi-item-carousel .carousel-inner .active.left {
-  left: -33%;
-}
-.multi-item-carousel .carousel-inner .active.right {
-  left: 33%;
-}
-.multi-item-carousel .carousel-inner .next {
-  left: 33%;
-}
-.multi-item-carousel .carousel-inner .prev {
-  left: -33%;
-}
-@media all and (transform-3d), (-webkit-transform-3d) {
-  .multi-item-carousel .carousel-inner > .item {
-    -webkit-transition: 500ms ease-in-out left;
-    transition: 500ms ease-in-out left;
-    -webkit-transition: 500ms ease-in-out all;
-    transition: 500ms ease-in-out all;
-    -webkit-backface-visibility: visible;
-            backface-visibility: visible;
-    -webkit-transform: none!important;
-            transform: none!important;
-  }
-}
-.multi-item-carousel .carouse-control.left,
-.multi-item-carousel .carouse-control.right {
-  background-image: none;
-}
-
-
-
-/* /multi-item-carousel */
 
 /* /Content */
