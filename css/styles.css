@@ -262,7 +262,6 @@ ul.get-connected li a:hover
     color: #4c5fab;
     font-size: 20px;
     padding-top: 25px;
-    padding-bottom: 10px;
 }
 
 .customers-link {
@@ -272,6 +271,14 @@ ul.get-connected li a:hover
 .customers-link a {
     color: #4c5fab;
     text-decoration: underline;
+}
+
+.customer-carousel {
+    margin-bottom: 59px;
+}
+
+.customer-item {
+    padding-top: 32px;
 }
 
 .customer-item-img {
