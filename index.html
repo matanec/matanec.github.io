@@ -1,18 +1,356 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/owlcarousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owlcarousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Bootstrap</title>
+</head>
+<body>
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+<header>
+  
+  <div class="topbar" >
+    <div class="container">
+      <div class="topbar-left">
+        <div class="motto">Define Your Own Path To Mobile Solutions</div>
+      </div>
+      <div class="topbar-right">
+        <ul class="get-connected list-inline">
+          <li>
+            <a href="mailto:int.sales@scopetechnology.com" 
+            title="Email" 
+            data-toggle="tooltip" 
+            data-placement="bottom"> 
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/scopetechnology" 
+            title="Twitter" 
+            data-toggle="tooltip"
+            data-placement="bottom"> 
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.facebook.com/scopetelematics" 
+            title="Facebook" 
+            data-toggle="tooltip"
+            data-placement="bottom"> 
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.linkedin.com/company/scope-technologies/" 
+              title="LinkedIn" 
+              data-toggle="tooltip"
+              data-placement="bottom" > 
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>  
+          </li>
+        </ul>        
+      </div>
+    </div>
+  </div><!-- topbar -->
+  
+  <div class="sticky">
+    <div class="container sticky-container"> 
+      <div class="sticky-left">
+          <span class="header-logo-helper"></span>
+          <a href="/" title="Scope Technologies">
+            <img src="images/logo.png" alt="Scope Technologies" class="header-logo" />
+          </a>
+      </div><!-- sticky-left -->
+      <div class="sticky-right">
+        
+      </div><!-- sticky-left -->
+    </div> 
+  </div><!-- sticky -->
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+</header>
 
-      <div class="entry">
-        {{ post.excerpt }}
+<section class="main-carousel">
+  <div class="owl-carousel  owl-theme" id="mainCarousel">
+
+
+    <div class="main-carousel-item-1">
+    </div>
+    <div class="main-carousel-item-2">
+    </div>
+    <div class="main-carousel-item-3">
+    </div>
+    <div class="main-carousel-item-4">
+    </div>
+
+  </div>
+</section>
+
+<section class="main-is">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-sm-4 is-section is-insurance">
+        <div class="is-section-img">
+            <img src="images/icons/insurance-icon.png" alt="Insurance solutions"/>
+        </div>        
+        <div class="is-insurance is-section-head text-uppercase">Insurance</div>
+        <div class="is-description">
+          <p>Scope offers a wide range of solutions for usage based insurance and claims management support, enabling behavior-based risk profiling, claims process optimization, fraud prevention, personalized risk scores and premiums, and consumer-facing value added services.
+            <br/><a href="insurance">Read more&gt;&gt;</a>
+          </p>
+        </div>
+      </div>
+      
+     
+
+      <div class="col-sm-4 is-section is-fleet">
+        <div class="is-section-img">
+          <img src="images/icons/fleet-icon.png" alt="Fleet solutions"/>
+        </div>
+        <div class="is-fleet is-section-head text-uppercase">Fleets</div>   
+        <div class="is-description">
+          <p>Scope provides a large variety of solutions including vehicle rental, leasing and other commercial fleets. Workforce management solutions, reduce expenses with proactive vehicle maintenance, driver behavior monitoring, and route and workforce optimization. 
+            <br/><a href="fleet">Read more&gt;&gt;</a>
+          </p>
+        </div>     
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+      <div class="col-sm-4 is-section is-aftermarket">
+        <div class="is-section-img">
+          <img src="images/icons/aftermarket-icon.png" alt="Aftermarket solutions"/>
+        </div>
+        <div class="is-aftermarket is-section-head text-uppercase">Aftermarket</div>
+        <div class="is-description">
+          <p>Scope helps aftermarket providers enhance customer loyalty through eCall, bCall and additional services like remote diagnostics and VRM, which allow service stations to notify when cars need servicing, and provide remote service for software updates.
+            <br/><a href="aftermarket">Read more&gt;&gt;</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section><!-- main-is -->
+
+<section class="about">
+  <div class="container">
+    <div class="about-content">
+      <h3>About Us</h3>
+      <p>
+      Scope Technologies is an award-winning global leader in advanced, enterprise-grade telematics, with customers in more than 50 countries on 5 continents. Scope’s groundbreaking, end-to-end solutions empower insurance providers, fleet operators and aftermarket service providers to be innovative and successful in dynamic market conditions.
+      </p>
+      <div class="about-link">
+        <a href="about">Read More&gt;&gt;</a>
+      </div>
+    </div>
+  </div>
+</section><!-- about -->  
+
+<section class="achievements">
+  <div class="container achievements-container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="achievements-box">
+          <div class="achievements-box-top">
+            More than
+          </div>
+          <div class="achievements-box-middle">
+            15
+          </div> 
+          <div class="achievements-box-bottom">
+            years in the<br/>telematics business
+          </div>  
+        </div>        
+      </div>
+      <div class="col-sm-3">
+        <div class="achievements-box">
+          <div class="achievements-box-top">
+            More than
+          </div>
+          <div class="achievements-box-middle">
+            50
+          </div> 
+          <div class="achievements-box-bottom">
+            countries with<br/>Scope customers
+          </div>  
+        </div> 
+      </div>
+      <div class="col-sm-3">
+        <div class="achievements-box">
+          <div class="achievements-box-top">
+            Ranked
+          </div>
+          <div class="achievements-box-middle">
+            1
+          </div> 
+          <div class="achievements-box-bottom">
+            “Top Telematics<br/>Technology Providers”<br/>in multiple areas
+          </div>  
+        </div>  
+      </div>
+      <div class="col-sm-3">
+        <div class="achievements-box">
+          <div class="achievements-box-top">
+            More than
+          </div>
+          <div class="achievements-box-middle">
+            12
+          </div> 
+          <div class="achievements-box-bottom">
+            patents and<br/>counting
+          </div>  
+        </div> 
+      </div>
+    </div> 
+  </div> 
+</section><!-- achievements -->  
+
+<section class="customers">
+  <div class="container customers-container">
+    <div class="customers-content">
+      <h2>Selected customers</h2>
+
+      <div class="owl-carousel customer-carousel" id="customerCarousel">
+        <div class="customer-item">
+          <a href="customers" target="_blank" title="Vodafone" data-toggle="tooltip" data-placement="top">
+            <img src="images/customers/vodafone2.png" class="customer-item-img center-block" alt="Vodafone" />
+          </a>
+        </div>
+        <div class="customer-item text-center">
+          <a href="customers" target="_blank" title="Total" data-toggle="tooltip" data-placement="top">
+            <img src="images/customers/total2.png" class="customer-item-img center-block" alt="Total" />
+          </a>
+        </div>
+        <div class="customer-item text-center">
+          <a href="customers" target="_blank" title="Shell" data-toggle="tooltip" data-placement="top">
+            <img src="images/customers/shell1.png" class="customer-item-img center-block" alt="Shell" />
+          </a>
+        </div>
+        <div class="customer-item text-center">
+          <a href="customers" target="_blank" title="Mahindra" data-toggle="tooltip" data-placement="top">
+            <img src="images/customers/mahindra.png" class="customer-item-img center-block" alt="Mahindra" />
+          </a>
+        </div>
+        <div class="customer-item text-center" >
+          <a href="customers" target="_blank" title="Holcim" data-toggle="tooltip" data-placement="top">
+            <img src="images/customers/holcim.png" class="customer-item-img center-block" alt="Holcim" />
+          </a>  
+        </div>
+        <div class="customer-item text-center">
+          <a href="customers" target="_blank" title="G4S" data-toggle="tooltip" data-placement="top">
+            <img src="images/customers/g4s.png" class="customer-item-img center-block" alt="G4S" />
+          </a>
+        </div>
+        <div class="customer-item text-center">
+          <a href="customers" target="_blank" title="FBD" data-toggle="tooltip" data-placement="top">
+            <img src="images/customers/fbd2.png" class="customer-item-img center-block" alt="FBD" />
+          </a>
+        </div>
+        <div class="customer-item text-center">
+          <a href="customers" target="_blank" title="DHL" data-toggle="tooltip" data-placement="top">
+            <img src="images/customers/dhl.png" class="customer-item-img center-block" alt="DHL" />
+          </a>
+        </div>
+        <div class="customer-item text-center">
+          <a href="customers" target="_blank" title="Bangkok Insurance" data-toggle="tooltip" data-placement="top">
+            <img src="images/customers/Bangkok-Insurance6.png" class="customer-item-img center-block" alt="Bangkok Insurance" />
+          </a>
+        </div>
+      </div>
+    
+      <div class="customers-link">
+        <a href="customers">View more of our global reach&gt;&gt;</a>
+      </div>
+    </div>
+  </div>   
+</section><!-- customers -->  
+
+<footer class="basement">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 basement-widget text-left">
+        <h3 class="basement-widget-header">
+          Follow us 
+        </h3>
+        <div class="basement-widget-header-bottom">
+        </div>   
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 basement-widget text-left">
+        <h3 class="basement-widget-header">
+          In the News
+        </h3>
+        <div class="basement-widget-header-bottom">
+        </div>   
+        <ul>
+
+          <li>
+            <a href="http://www.insurancebusinessmag.com/uk/news/auto-motor/car-insurance-set-for-a-radical-change-65663.aspx" target="_blank">
+            Insurance Business Magazine : Future of Car Insurance<br>
+            Cyril Zeller gives his predictions for the future of car insurance</a>
+            <span class="post-date">April 21, 2017</span>
+          </li>
+
+          <li>
+            <a href="http://rethinkresearch.biz/articles/renault-scope-tech-hint-auto-insurance-usurpation/" target="_blank">
+            Rethink Research<br>
+            French insurer Groupama announces partnership with Scope</a>					
+            <span class="post-date">April 7, 2017</span>
+          </li>
+
+          <li>
+            <a href="http://adndelseguro.com/es/actualidad/latinoamerica/sistran-y-scope-technologies-desarrollaran-en-latam-soluciones-de-pay-you" target="_blank">
+            ADN Del Seguro<br>
+            Scope partners with Sistran for usage-based insurance in Latin America</a>
+            <span class="post-date">March 2017</span>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 basement-widget text-left">
+        <h3 class="basement-widget-header">
+          Contact us
+        </h3>
+        <div class="basement-widget-header-bottom">
+        </div>
+
+        <div>
+          Scope Technologies is an award-winning global leader in advanced, enterprise-grade telematics, with customers in more than 50 countries on 5 continents. <br/>
+          <br/>
+          Contact us at:
+          <a href="mailto:int.sales@scopetechnology.com">int.sales@scopetechnology.com</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="container site-info">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="text-left">Copyright © 2017 <a href="#">Scope Technology</a>. All rights reserved.</div>
+        <div class="text-left"><a href="privacy-policy">Privacy Policy</a> | <a href="terms-of-use">Terms of Use</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<section style="background-color: black; color: white;">
+  &gt;&gt;
+</section>  
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
+
+
