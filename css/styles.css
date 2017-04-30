@@ -287,5 +287,29 @@ ul.get-connected li a:hover
 }
 /* /Customers */
 
+/* Basement */
+.basement {
+    position: relative;
+    top: -90px;
+    background-color: #666666;
+    color: rgba(255,255,255,0.80);
+}
+
+.basement-widget-header {
+    font-size: 18px;
+    line-height: 20px;
+    padding-bottom: 15px;
+}
+
+.basement-widget-header-bottom {
+    background-color: #1abc9c;
+    width: 70px;
+    height: 2px;
+    margin-left: 0px;
+    margin-bottom: 25px;
+}
+
+
+/* /Basement */
 
 /* /Content */
