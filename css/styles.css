@@ -132,15 +132,17 @@ ul.get-connected li a:hover
 
 /* Carousel */
 .main-carousel {
-    position: relative;
-    top: -117px;
+    overflow-y: visible;
     z-index: -1;
-    height: 550px;
+    height: 383px;
 
 }
+ 
 
 .main-carousel-item-1
 {
+    position: relative;
+    top: -117px;
     height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -181,8 +183,6 @@ ul.get-connected li a:hover
 /* IS - Inndustry Solutions */
 .main-is {
     background-color: #e6e6e6;
-    position: relative;
-    top: -90px;
     padding-bottom: 40px;
 }
 
@@ -215,8 +215,6 @@ ul.get-connected li a:hover
 /* About */
 .about
 {
-    position: relative;
-    top: -90px;
     background: linear-gradient(#2d3866 0%, #4b5eaa 11px, #4b5eaa 100%);
 }
 
@@ -246,8 +244,6 @@ ul.get-connected li a:hover
 /* Achievements */
 .achievements
 {
-    position: relative;
-    top: -90px;
     background: url("../images/bigroad.jpg")
 }
 
@@ -282,8 +278,6 @@ ul.get-connected li a:hover
 
 /* Customers */
 .customers {
-    position: relative;
-    top: -90px;
     background: linear-gradient(to bottom, #999 0, #e6e6e6 7px, #e6e6e6 100%);
 }
 
@@ -322,8 +316,6 @@ ul.get-connected li a:hover
 
 /* Basement */
 .basement {
-    position: relative;
-    top: -90px;
     background-color: #666666;
     color: rgba(255,255,255,0.28);
 }
