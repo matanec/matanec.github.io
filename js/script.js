@@ -3,6 +3,17 @@ $(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 
+// Instantiate main owl carousel 
+$(function(){
+    $("#mainCarousel").owlCarousel({
+        loop:true,
+        margin:0,
+        autoplay:true,
+        items:1,
+        nav: true
+    });
+});
+
 // Instantiate owl carousel for customers
 $(function(){
   $("#customerCarousel").owlCarousel({

@@ -131,15 +131,48 @@ ul.get-connected li a:hover
 /* /Sticky */
 
 /* Carousel */
-.main-carousel{
-    height: 500px;
-    background-image: url("../images/carousel/slider-01.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
+.main-carousel {
     position: relative;
     top: -117px;
     z-index: -1;
+    height: 550px;
+
+}
+
+.main-carousel-item-1
+{
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top; 
+    background-image: url("../images/carousel/slider-01.jpg");  
+}
+
+.main-carousel-item-2
+{
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top; 
+    background-image: url("../images/carousel/slider-02.jpg");  
+}
+
+.main-carousel-item-3
+{
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top; 
+    background-image: url("../images/carousel/slider-03.jpg");  
+}
+
+.main-carousel-item-4
+{
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top; 
+    background-image: url("../images/carousel/slider-04.jpg");  
 }
 
 /* /Carousel */
@@ -292,6 +325,10 @@ ul.get-connected li a:hover
     position: relative;
     top: -90px;
     background-color: #666666;
+    color: rgba(255,255,255,0.28);
+}
+
+.basement h3 {
     color: rgba(255,255,255,0.80);
 }
 
@@ -309,6 +346,36 @@ ul.get-connected li a:hover
     margin-bottom: 25px;
 }
 
+.basement ul, .basement ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.basement ul > li {
+    list-style: none;
+    padding: 13px 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.28);
+}
+
+.basement a {
+    color: rgba(255,255,255,0.80);
+    transition-delay: 0s;
+    transition-duration: 0.3s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+}
+
+.basement a:hover {
+    color: #1abc9c;
+    text-decoration: none;
+}
+
+.site-info {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
 
 /* /Basement */
 
