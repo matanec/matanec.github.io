@@ -144,41 +144,64 @@ ul.get-connected li a:hover
 }
  
 
-.main-carousel-item-1
-{
+.main-carousel-item > div {
     height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top; 
+}
+
+.main-carousel-item-1
+{
     background-image: url("../images/carousel/slider-01.jpg");  
 }
 
 .main-carousel-item-2
 {
-    height: 500px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top; 
     background-image: url("../images/carousel/slider-02.jpg");  
 }
 
 .main-carousel-item-3
 {
-    height: 500px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top; 
     background-image: url("../images/carousel/slider-03.jpg");  
 }
 
 .main-carousel-item-4
-{
-    height: 500px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top; 
+{ 
     background-image: url("../images/carousel/slider-04.jpg");  
 }
+
+.highlight{
+  background-color: #ffffff !important;
+  opacity: 0.9 !important;
+  margin-top: 250px;
+  width: 560px;
+  height: 164px;
+  color: #4b5eab;
+  padding: 10px;
+}
+
+.highlight-right{
+    float: right;
+}
+
+.highlight > h3 {
+    margin-top: 0px;
+}
+
+.highlight-link {
+    padding: 4px;
+    float: right;
+    background-color: #4b5eab;
+    color: #ffffff;
+}
+
+.highlight-link > a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
 
 .main-carousel-inner > .owl-nav {
     position: relative;

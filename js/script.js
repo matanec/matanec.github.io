@@ -10,7 +10,10 @@ $(function(){
         animateOut: "fadeOut",
         loop:true,
         margin:0,
+
         autoplay:true,
+        autoplayTimeout:15000,
+
         items:1,
         nav: true,
         navText: ["<i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i>","<i class=\"fa fa-chevron-right\" aria-hidden=\"true\">"]
@@ -39,7 +42,6 @@ $(function(){
     margin:10,
 
     autoplay:true,
-    autoplaySpeed:800,
     autoplayTimeout:4500,
     
     responsiveClass:true,
