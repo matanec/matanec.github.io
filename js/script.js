@@ -6,6 +6,8 @@ $(function(){
 // Instantiate main owl carousel 
 $(function(){
     $("#mainCarousel").owlCarousel({
+        animateIn: "fadeId",
+        animateOut: "fadeOut",
         loop:true,
         margin:0,
         autoplay:true,
