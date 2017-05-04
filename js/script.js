@@ -1,10 +1,10 @@
-// Instantiate Bootstrap tooltip
 $(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-});
 
-// Instantiate main owl carousel 
-$(function(){
+    // Instantiate Bootstrap tooltip
+    $('[data-toggle="tooltip"]').tooltip(); 
+
+
+    // Instantiate main owl carousel 
     $("#mainCarousel").owlCarousel({
         animateIn: "fadeId",
         animateOut: "fadeOut",
@@ -18,11 +18,9 @@ $(function(){
         nav: true,
         navText: ["<i class=\"fa fa-chevron-left\" aria-hidden=\"true\"></i>","<i class=\"fa fa-chevron-right\" aria-hidden=\"true\">"]
     });
-});
 
-//control visibility of main carousel 
-$(function(){
-   
+
+    //control visibility of main carousel
     $(".main-carousel-inner > .owl-nav, .main-carousel-inner > .owl-dots").hide();
     
     $(".main-carousel-inner").hover(
@@ -31,12 +29,11 @@ $(function(){
         }, 
         function() {
             $(".main-carousel-inner > .owl-nav, .main-carousel-inner > .owl-dots").hide();
-        });
-});
+    });
 
-// Instantiate owl carousel for customers
-$(function(){
-  $("#customerCarousel").owlCarousel({
+
+    // Instantiate owl carousel for customers
+    $("#customerCarousel").owlCarousel({
     loop:true,
     dots:false,
     margin:10,
@@ -58,6 +55,13 @@ $(function(){
             items:5,
             nav:false
         }
-    }
-  });
+      }
+    });
+
+    //monitor footer placehoder
+    $("#colophonPlaceholder").height($("#colophon").height());
+    $(window).resize(function() {        
+        $("#colophonPlaceholder").height($("#colophon").height());
+    });
+
 });
