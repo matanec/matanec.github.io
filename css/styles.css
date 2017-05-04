@@ -4,7 +4,6 @@ body{
 }
 
 header {
-    position: absolute;
     z-index: 10;
     width: 100%;
 }
@@ -92,7 +91,7 @@ ul.get-connected li a:hover
 
 /* Sticky */
 
-.sticky
+.topmenu
 {
     height: 79px;
     background-color: #ffffff !important;
@@ -101,12 +100,12 @@ ul.get-connected li a:hover
     vertical-align: middle;
 }
 
-.sticky-container
+.topmenu-container
 {
     padding-left: 10px;
 }
 
-.sticky-left
+.topmenu-left
 {
     height: 79px;
     float: left;
@@ -127,7 +126,7 @@ ul.get-connected li a:hover
     height: 49px;
 }
 
-.sticky-right
+.topmenu-right
 {
     height: 79px;
     float: right;
