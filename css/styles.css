@@ -399,9 +399,14 @@ ul.get-connected li a:hover
 /* /Customers */
 
 /* Basement */
+.basement-scroll{
+    height: 456px;
+}
+
 .basement {
     background-color: #666666;
     color: rgba(255,255,255,0.28);
+    z-index: -1;
 }
 
 .basement h3 {
