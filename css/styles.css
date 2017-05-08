@@ -4,7 +4,6 @@ body{
 }
 
 header {
-    z-index: 10;
     width: 100%;
 }
 
@@ -91,13 +90,20 @@ ul.get-connected li a:hover
 
 /* Sticky */
 
+  .affix {
+    top: 0;
+  }
+
 .topmenu
 {
     height: 79px;
-    background-color: #ffffff !important;
-    opacity: 0.9 !important;
+    background-color: #ffffff;
+    opacity: 0.9;
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.42);
     vertical-align: middle;
+    z-index: 10;
+    left: 0px;  
+    right: 0px;
 }
 
 .topmenu-container

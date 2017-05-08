@@ -64,4 +64,7 @@ $(function(){
         $("#colophonPlaceholder").height($("#colophon").height());
     });
 
+    //monitor main menu position
+    $("#topmenu").sticky({ topSpacing: 0 });
+
 });
