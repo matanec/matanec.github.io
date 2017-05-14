@@ -90,13 +90,17 @@ ul.get-connected li a:hover
 
 /* Sticky */
 
-  .affix {
+/*
+panel height 79->73
+image height 49->35
+*/
+
+.affix {
     top: 0;
-  }
+}
 
 .topmenu
 {
-    height: 79px;
     background-color: #ffffff;
     opacity: 0.9;
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.42);
@@ -107,30 +111,45 @@ ul.get-connected li a:hover
     position: fixed;
 }
 
-.topmenu-container
-{
-    padding-left: 10px;
+header .affix-top {
+    height: 79px;
 }
+
+header .affix {
+    height: 73px;
+}
+
+header .affix-top .topmenu-container .topmenu-navbar-header .topmenu-left a img.header-logo {
+    height: 49px;
+}
+
+header .affix .topmenu-container .topmenu-navbar-header .topmenu-left a img.header-logo {
+    height: 35px;
+}
+
+
 
 .topmenu-left
 {
+    /*
     height: 79px;
-    float: left;
-    white-space: nowrap;    
     text-align: center;
+    */
+    padding-left: 0px;
+    float: left;
+    white-space: nowrap; 
 }
 
-.header-logo-helper
+
+span.header-logo
 {
     height: 100%;
     display: inline-block; 
     vertical-align: middle;
 }
 
-.header-logo {
+img.header-logo {
     vertical-align: middle;
-    max-height: 79px;
-    height: 49px;
 }
 
 .topmenu-right
