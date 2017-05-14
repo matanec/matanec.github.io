@@ -90,10 +90,6 @@ ul.get-connected li a:hover
 
 /* Sticky */
 
-/*
-panel height 79->73
-image height 49->35
-*/
 
 .affix {
     top: 0;
@@ -119,6 +115,7 @@ header .affix {
     height: 73px;
 }
 
+
 header .affix-top .topmenu-container .topmenu-navbar-header .topmenu-left a img.header-logo {
     height: 49px;
 }
@@ -143,8 +140,35 @@ img.header-logo {
 
 .topmenu-right
 {
-    height: 79px;
     float: right;
+}
+
+
+
+header .affix-top .topmenu-container .topmenu-right  .topmenu-list {
+    height: 79px;
+}
+
+header .affix .topmenu-container .topmenu-right .topmenu-list {
+    height: 73px;
+}
+
+ul.nav li {
+    height: 100%;
+    vertical-align: middle;
+}
+
+ul.nav li.active a {
+    color: #4c5faa;
+}
+
+ul.nav li a {
+    color: #333333;
+}
+
+ul.nav li a:hover {
+    background-color: transparent;
+    color: #4c5faa;
 }
 
 
