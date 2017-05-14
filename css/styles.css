@@ -124,27 +124,16 @@ header .affix-top .topmenu-container .topmenu-navbar-header .topmenu-left a img.
 }
 
 header .affix .topmenu-container .topmenu-navbar-header .topmenu-left a img.header-logo {
+    margin-top: 4px;
     height: 35px;
 }
 
-
-
 .topmenu-left
 {
-    /*
-    height: 79px;
-    text-align: center;
-    */
     padding-left: 0px;
     float: left;
     white-space: nowrap; 
-}
-
-
-span.header-logo
-{
     height: 100%;
-    display: inline-block; 
     vertical-align: middle;
 }
 
