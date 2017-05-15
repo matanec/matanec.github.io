@@ -153,24 +153,55 @@ header .affix .topmenu-container .topmenu-right .topmenu-list {
     height: 73px;
 }
 
+header .affix-top .topmenu-container .topmenu-right  .topmenu-list li a {
+    line-height: 78px;
+}
+
+header .affix .topmenu-container .topmenu-right .topmenu-list li a  {
+    line-height: 72px;
+}
+
+
+
 ul.nav li {
     height: 100%;
     vertical-align: middle;
 }
 
-ul.nav li.active a {
-    color: #4c5faa;
-}
+
 
 ul.nav li a {
+    font-size: 12px;
+    letter-spacing: 1px;
     color: #333333;
+    height: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;    
+    border-top: 1px solid transparent;
+}
+
+ul.nav li.active a {
+    color: #4c5faa;
+
 }
 
 ul.nav li a:hover {
     background-color: transparent;
     color: #4c5faa;
+    border-top: 1px solid #4c5faa;
+
 }
 
+.search-link a {
+    border-top-width: 0px !important;
+    font-size: 14px !important;
+    padding-right: 0px !important;
+}
+
+.search-link a:hover 
+{
+    border-top-width:  0px !important;
+}
 
 /* /Sticky */
 
