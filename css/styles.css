@@ -192,6 +192,34 @@ ul.nav li a:hover {
 
 }
 
+.dropdown-menu {
+    border-top: 1px solid #4c5faa;
+    padding-top: 0px;   
+    padding-bottom: 0px;  
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+ul.dropdown-menu li {
+    height: 35px;
+    border-width: 0px;
+    border-style: none;
+}
+
+ul.dropdown-menu li a {
+    text-transform: none;
+    font-size: 14px;
+    line-height: 35px;
+    background-color: #eeeeee;
+}
+
+ul.dropdown-menu li a:hover {
+    border-width: 0px;
+    border-style: none
+}
+
 .search-link a {
     border-top-width: 0px !important;
     font-size: 14px !important;
