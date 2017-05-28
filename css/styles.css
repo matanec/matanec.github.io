@@ -199,6 +199,7 @@ ul.nav li a:hover {
     padding-bottom: 0px;  
 }
 
+
 .dropdown:hover .dropdown-menu {
     display: block;
 }
@@ -223,11 +224,17 @@ ul.dropdown-menu li a {
     border-style: none
 }
 
+
+
 ul.dropdown-menu li a:hover {
     border-width: 0px;
     border-style: none;
     background-color: #EEEEEE;
     color: #1abc9c;
+}
+
+ul.is-submenu {
+  list-style-type: none;
 }
 
 .search-link a {
