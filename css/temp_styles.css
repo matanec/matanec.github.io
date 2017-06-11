@@ -1,65 +1,44 @@
-.yamm .sub-menu{
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+body {
+    font-family: FFDINWebLight,'Trebuchet MS', Helvetica, sans-serif;
+    background-color: #e6e6e6;
 }
 
-a.sub-menu-item {
+pre { margin: 0; padding: 10px 20px !important;}
+
+
+/* ------ ------*/
+
+
+.yamm .sub-menu{
+    padding-left: 15px !important;
+    padding-right: 14px !important;
+}
+
+div.sub-menu-item {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+div.sub-menu-item a {
     text-align: center;
     text-transform: uppercase;
 }
 
-a.sub-menu-item img {
+div.sub-menu-item a img {
      width: 100%;
 }
 
-/* layout */
-body {
-  padding-bottom: 40px;
-  color: #666;
-}
-pre { margin: 0; padding: 10px 20px !important;}
-
-footer {
-  margin-top: 200px;
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+    max-height: 340px;
 }
 
-.container, .jumbotron .container { width: auto; max-width: 1170px; }
 
-.jumbotron {
-  margin: 60px 0;
-  padding-left: 0;
-  padding-right: 0;
-}
-  .jumbotron.intro {
-    margin-top: 0;
-  }
 
-  .jumbotron .navbar {
-    font-size: 14px;
-    line-height: 1.6;
-  }
 
-/* menu styes */
-.list-unstyled,
-.list-unstyled ul { min-width: 120px }
 
-@media ( min-width: 767px ) {
-  .panel-group { width: 400px; }
-  .thumbnail { margin: 0; }
-}
 
-/* Grid demo styles */
-.grid-demo {
-  padding: 10px 30px;
-}
 
-  .grid-demo [class*="col-"] {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 1em;
-    text-align: center;
-    line-height: 2;
-    background-color: #e5e1ea;
-    border: 1px solid #d1d1d1;
-  }
+
+
+
 
