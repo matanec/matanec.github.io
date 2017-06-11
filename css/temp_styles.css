@@ -106,7 +106,6 @@ ul.get-connected li a:hover
     z-index: 10;
     left: 0px;  
     right: 0px;
-    position: fixed;
 }
 
 header .affix-top {
@@ -250,6 +249,47 @@ ul.is-submenu {
     border-top-width:  0px !important;
 }
 
+.topmenu .navbar-toggle {
+    border-color: #ddd;
+}
+
+.topmenu .navbar-toggle:focus, .topmenu .navbar-toggle:hover {
+    background-color: #ddd;
+}
+
+.topmenu .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+
+.topmenu .icon-bar+.icon-bar {
+    margin-top: 4px;
+}
+
+.topmenu .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+
+.topmenu-right.collapsing {
+    float: none; 
+    background-color: #ffffff;
+    opacity: 0.9; 
+}
+
+
+.topmenu-right.collapse.in {
+    float: none; 
+    background-color: #ffffff;
+    opacity: 0.9; 
+}
+
+.topmenu-right.collapse.in  > ul > li {
+    height: 46px;
+}
+
 /* /Sticky */
 
 
@@ -276,7 +316,7 @@ div.sub-menu-item a img {
 }
 
 .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
-    max-height: 340px;
+    max-height: 540px;
 }
 
 
