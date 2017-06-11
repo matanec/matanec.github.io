@@ -7,6 +7,8 @@ header {
     width: 100%;
 }
 
+/* Top-Bar */
+
 .topbar {
     background-color: #4c5fab;
     color: rgba(255,255,255,0.90);
@@ -14,7 +16,6 @@ header {
     vertical-align: middle;
 }
 
-/* Top-Bar */
 
 .topbar-left {
     float: none;

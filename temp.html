@@ -1,89 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- ViewPort -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yet another megamenu for Bootstrap 3">
-    <meta name="author" content="@geedmo">
-    <title>Temp</title>
-    <!-- Bootstrap and demo CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/temp_styles.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/yamm/yamm.css">
+    <link rel="stylesheet" href="css/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/temp_styles.css">
     <!-- Yamm styles-->
-    <link href="css/yamm/yamm.css" rel="stylesheet">
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--if lt IE 9
     script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
     script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
-    
     -->
+
+    <title>Temp</title>
   </head>
   <body>
  
+    <header>
 
-    <div class="navbar yamm navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#" class="navbar-brand">Yamm Megamenu</a>
+      <div class="topbar" >
+        <div class="container">
+          <div class="topbar-left">
+            <div class="motto">Define Your Own Path To Mobile Solutions</div>
+          </div>
+          <div class="topbar-right">
+            <ul class="get-connected list-inline">
+              <li>
+                <a href="mailto:int.sales@scopetechnology.com" 
+                title="Email" 
+                data-toggle="tooltip" 
+                data-placement="bottom"> 
+                  <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://twitter.com/scopetechnology" 
+                title="Twitter" 
+                data-toggle="tooltip"
+                data-placement="bottom"> 
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://www.facebook.com/scopetelematics" 
+                title="Facebook" 
+                data-toggle="tooltip"
+                data-placement="bottom"> 
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://www.linkedin.com/company/scope-technologies/" 
+                  title="LinkedIn" 
+                  data-toggle="tooltip"
+                  data-placement="bottom" > 
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>  
+              </li>
+            </ul>        
+          </div>
         </div>
-        <div id="navbar-collapse-1" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="#resources">Resources 1</a>
-            </li>
-            <li>
-              <a href="#resources">Resources 2</a>
-            </li>
-            <li>
-              <a href="#resources">Resources 3</a>
-            </li>
-            <!-- Classic dropdown -->
-            <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Classic</a>
-              <ul role="menu" class="dropdown-menu">
-                <li><a tabindex="-1" href="#"> Action </a></li>
-                <li><a tabindex="-1" href="#"> Another action </a></li>
-                <li><a tabindex="-1" href="#"> Something else here </a></li>
-                <li class="divider"></li>
-                <li><a tabindex="-1" href="#"> Separated link </a></li>
-              </ul>
-            </li>
-            <!-- Pictures -->
-            <li class="dropdown yamm-fw">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pictures</a>
-              <ul class="dropdown-menu">
-                <li>
-                  <div class="yamm-content sub-menu">
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-4 sub-menu-item">
-                        <a href="#">
-                          <div>Insurance</div>
-                          <img alt="navalny" src="images\sub-menu\insurance.jpg">
-                        </a>
-                      </div>   
-                      <div class="col-xs-12 col-sm-4 sub-menu-item">
-                        <a href="#">
-                          <div>Fleets</div>
-                          <img alt="navalny" src="images\sub-menu\fleets.jpg">
-                        </a>
-                      </div>   
-                      <div class="col-xs-12 col-sm-4 sub-menu-item">
-                        <a href="#">
-                          <div>Aftermarket</div>
-                          <img alt="navalny" src="images\sub-menu\aftermarket.jpg">
-                        </a>
-                      </div>                     
+      </div><!-- topbar -->
+
+
+      <div class="navbar yamm navbar-default topmenu" id="topmenu" data-spy="affix" data-offset-top="38">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#navbar-collapsed" class="navbar-toggle">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand topmenu-left">
+                <a href="/" title="Scope Technologies">
+                  <img src="images/logo.png" alt="Scope Technologies" class="header-logo" />
+                </a>
+            </div>
+          </div>
+          <div id="navbar-collapsed" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav topmenu-list text-uppercase">
+              
+              <li class="active">
+                <a href="#">Home</a>
+              </li>
+
+              <!-- Industry Solutions submenu -->
+              <li class="dropdown yamm-fw">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Industry Solutions</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="yamm-content sub-menu">
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-4 sub-menu-item">
+                          <a href="#">
+                            <div>Insurance</div>
+                            <img alt="Insurance" src="images\sub-menu\insurance.jpg">
+                          </a>
+                        </div>   
+                        <div class="col-xs-12 col-sm-4 sub-menu-item">
+                          <a href="#">
+                            <div>Fleets</div>
+                            <img alt="Fleets" src="images\sub-menu\fleets.jpg">
+                          </a>
+                        </div>   
+                        <div class="col-xs-12 col-sm-4 sub-menu-item">
+                          <a href="#">
+                            <div>Aftermarket</div>
+                            <img alt="Aftermarket" src="images\sub-menu\aftermarket.jpg">
+                          </a>
+                        </div>                     
+                      </div>
                     </div>
-                  </div>
-                </li>
-              </ul>
-            </li>
-          </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="#resources">Resources</a>
+              </li>
+              <li>
+                <a href="#case_studies">Case Studies</a>
+              </li>
+
+
+              <!-- About dropdown -->
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">About</a>
+                <ul role="menu" class="dropdown-menu">
+                  <li><a href="#">About Scope</a></li>
+                  <li><a href="#">In the News</a></li>
+                  <li><a href="#">Social Responsibility</a></li>
+                  <li><a href="#">Governance</a></li>
+                  <li><a href="#">Join Us</a></li>
+                  <li><a href="#">Partners</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Email Disclaimer</a></li>
+                </ul>
+              </li>
+
+            
+              <li>
+                <a href="#newsletter">Newsletter</a>
+              </li>
+              <li>
+                <a href="#contact">Contact Us</a>
+              </li>
+              <li class="search-link">
+                <a href="#search"><i class="fa fa-search" aria-hidden="true"></i></a>
+              </li>
+
+            </ul>
+          </div>
         </div>
-      </div>
-    </div>
+      </div><!-- navbar -->
 
-
+    </header>
 
     <div class="container">
       <div class="row">
