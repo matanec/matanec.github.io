@@ -106,6 +106,7 @@ ul.get-connected li a:hover
     z-index: 10;
     left: 0px;  
     right: 0px;
+    position: fixed;
 }
 
 header .affix-top {
@@ -249,6 +250,8 @@ ul.is-submenu {
     border-top-width:  0px !important;
 }
 
+
+
 .topmenu .navbar-toggle {
     border-color: #ddd;
 }
@@ -286,8 +289,15 @@ ul.is-submenu {
     opacity: 0.9; 
 }
 
+
 .topmenu-right.collapse.in  > ul > li {
     height: 46px;
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+   .collapse {
+       display: block !important;
+   }
 }
 
 /* /Sticky */
