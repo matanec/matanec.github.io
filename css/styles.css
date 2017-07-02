@@ -90,9 +90,16 @@ ul.get-connected li a:hover
 /* /Top-Bar */
 
 /* Top-Menu */
-    
-    .topmenu
-    {
+
+   .navbar {
+    border-radius: 0px;
+    }
+
+    .dropdown-menu {
+        border-radius: 0px; 
+    }
+
+    .topmenu {
         background-color: #ffffff;
         opacity: 0.9;
         box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.42);
