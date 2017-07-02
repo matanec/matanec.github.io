@@ -3,6 +3,10 @@ $(function(){
     // Instantiate Bootstrap tooltip
     $('[data-toggle="tooltip"]').tooltip(); 
 
+    //yamm 
+    $(document).on('click', '.yamm .dropdown-menu', function(e) {
+        e.stopPropagation()
+    })
 
     // Instantiate main owl carousel 
     $("#mainCarousel").owlCarousel({
@@ -63,13 +67,5 @@ $(function(){
     $(window).resize(function() {        
         $("#colophonPlaceholder").height($("#colophon").height());
     });
-
-    //monitor main menu position
-    $("#topmenu").sticky({ topSpacing: 0 });
-
-    //yamm 
-    $(document).on('click', '.yamm .dropdown-menu', function(e) {
-        e.stopPropagation()
-    })
 
 });
