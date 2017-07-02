@@ -161,7 +161,7 @@ ul.get-connected li a:hover
 
     /* - affix & height */
 
-    @media (max-width: 992px) {
+    @media (max-width: 991px) {
         .topmenu.affix {
             position: relative;
         }
@@ -225,7 +225,7 @@ ul.get-connected li a:hover
         opacity: 1; 
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
         .topmenu{
             opacity: 1; 
         }
@@ -278,7 +278,7 @@ ul.get-connected li a:hover
         padding: 0px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
         div.is-sub-menu-item a img {
             width: 72%; 
         }
@@ -350,14 +350,14 @@ ul.get-connected li a:hover
     }
 
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1199px) {
         .topmenu-list.nav > li > a {
             padding-right: 8px;
             padding-left: 8px;
         }
     }
 
-    @media (max-width: 992px) {
+    @media (max-width: 991px) {
         .topmenu-list.nav > li > a {
             padding-right: 4px;
             padding-left: 4px;
@@ -365,7 +365,7 @@ ul.get-connected li a:hover
         }
     }
 
-    @media (min-width: 768px) and (max-width: 992px)
+    @media (min-width: 768px) and (max-width: 991px)
     {
         .topmenu-content{
             padding-right: 1px;
@@ -403,8 +403,38 @@ ul.get-connected li a:hover
     height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center top; 
+    background-position: left top; 
 }
+
+    @media (max-width: 1199px) {        
+        .main-carousel-section { 
+            height: 480px;
+        }
+
+        .main-carousel-item > div {
+            height: 480px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        .main-carousel-section { 
+            height: 420px;
+        }
+
+        .main-carousel-item > div {
+            height: 420px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .main-carousel-section { 
+            height: 380px;
+        }
+
+        .main-carousel-item > div {
+            height: 380px;
+        }
+    }
 
 .main-carousel-item-1
 {
