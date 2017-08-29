@@ -418,11 +418,7 @@ ul.get-connected li a:hover
 
     @media (max-width: 991px) {
         .main-carousel-section { 
-            height: 420px;
-        }
-
-        .main-carousel-item > div {
-            height: 420px;
+            display: none;
         }
     }
 
@@ -554,6 +550,12 @@ ul.get-connected li a:hover
     padding-bottom: 40px;
     padding-top: 32px;
 }
+
+    @media (max-width: 991px) {
+        .main-is {
+            padding-top: 0px;
+        }
+    }
 
 .is-section-img {
     text-align: center;
