@@ -1,0 +1,1695 @@
+{
+  "x-generator": "NSwag v13.10.9.0 (NJsonSchema v10.4.1.0 (Newtonsoft.Json v13.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ANS API",
+    "version": "0.9"
+  },
+  "paths": {
+    "/Changes/{id}/Process": {
+      "post": {
+        "tags": [
+          "Changes"
+        ],
+        "operationId": "Changes_AdjustQuery",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Monitoring/LastBatchesInfo": {
+      "get": {
+        "tags": [
+          "Monitoring"
+        ],
+        "operationId": "Monitoring_GetLastBatchesInfo",
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetLastBatchesInfoResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Queries": {
+      "post": {
+        "tags": [
+          "Queries"
+        ],
+        "operationId": "Queries_AddQuery",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddQueryCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetQueryResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Queries/{id}/Adjust": {
+      "post": {
+        "tags": [
+          "Queries"
+        ],
+        "operationId": "Queries_AdjustQuery",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Queries/{id}/ForceAdjusted": {
+      "post": {
+        "tags": [
+          "Queries"
+        ],
+        "operationId": "Queries_ForceQueryAdjusted",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Queries/ChangeDateRange": {
+      "post": {
+        "tags": [
+          "Queries"
+        ],
+        "operationId": "Queries_ChangeQueryDateRange",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeQueryDateRangeCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Queries/{id}/Renew": {
+      "post": {
+        "tags": [
+          "Queries"
+        ],
+        "operationId": "Queries_RenewQuery",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Queries/{id}/Deactivate": {
+      "post": {
+        "tags": [
+          "Queries"
+        ],
+        "operationId": "Queries_DeactivateQuery",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Queries/Problematic": {
+      "get": {
+        "tags": [
+          "Queries"
+        ],
+        "operationId": "Queries_GetProblematicQueries",
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetProblematicQueriesResultItem"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Queries/{id}": {
+      "get": {
+        "tags": [
+          "Queries"
+        ],
+        "operationId": "Queries_GetQuery",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetQueryResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Subscriptions/{id}": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "operationId": "Subscriptions_GetSubscriptionInfo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSubscriptionInfoResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Subscriptions/Search": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "operationId": "Subscriptions_SearchSubscriptions",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SearchSubscriptionsResult"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Tenants": {
+      "put": {
+        "tags": [
+          "Tenants"
+        ],
+        "operationId": "Tenants_AddOrUpdateTenant",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddOrUpdateTenantCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddOrUpdateTenantResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Tenants"
+        ],
+        "operationId": "Tenants_AddTenant",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTenantCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTenantResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Tenants"
+        ],
+        "operationId": "Tenants_GetAllTenants",
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetAllTenantsResultItem"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/Tenants/{code}": {
+      "delete": {
+        "tags": [
+          "Tenants"
+        ],
+        "operationId": "Tenants_DeleteTenant",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Tenants"
+        ],
+        "operationId": "Tenants_GetTenant",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTenantResult"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AppProblemDetails": {
+        "type": "object",
+        "additionalProperties": {
+          "nullable": true
+        },
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ProblemType"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ProblemType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Validation",
+          "WorkspaceMismatch",
+          "WorkspaceRequestFailure",
+          "NotFound",
+          "Unhandled"
+        ],
+        "enum": [
+          "Validation",
+          "WorkspaceMismatch",
+          "WorkspaceRequestFailure",
+          "NotFound",
+          "Unhandled"
+        ]
+      },
+      "GetLastBatchesInfoResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "lastSentOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastCompletedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "GetQueryResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueryDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "QueryDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "externalReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "policyNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "validTill": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "adjustedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "firstAdjustmentTryOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastAdjustmentTryOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rejectedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "succededOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "expiredOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "waitingSetOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "failedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "mockingSetOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "batchedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "inactiveSetOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "unitExistanceDetectedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/QueryStatus"
+          },
+          "stateChanges": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/QueryStateChangeDto"
+            }
+          },
+          "initiatingChangeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "initiatingSubscriptionId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "queryType": {
+            "$ref": "#/components/schemas/QueryType"
+          }
+        }
+      },
+      "QueryStatus": {
+        "type": "string",
+        "description": "",
+        "x-enumFlags": true,
+        "x-enumNames": [
+          "None",
+          "Created",
+          "UnitExistanceDetected",
+          "Adjusted",
+          "Expired",
+          "Waiting",
+          "Rejected",
+          "Mocking",
+          "Batched",
+          "Failed",
+          "Succeded",
+          "Inactive"
+        ],
+        "enum": [
+          "None",
+          "Created",
+          "UnitExistanceDetected",
+          "Adjusted",
+          "Expired",
+          "Waiting",
+          "Rejected",
+          "Mocking",
+          "Batched",
+          "Failed",
+          "Succeded",
+          "Inactive"
+        ]
+      },
+      "QueryStateChangeDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "appliedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "statusBefore": {
+            "$ref": "#/components/schemas/QueryStatus"
+          },
+          "statusAfter": {
+            "$ref": "#/components/schemas/QueryStatus"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataJson": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "QueryType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Open",
+          "Update",
+          "Decorate"
+        ],
+        "enum": [
+          "Open",
+          "Update",
+          "Decorate"
+        ]
+      },
+      "AddQueryCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueryCreationDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "QueryCreationDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "externalReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "policyNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "validTill": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "queryType": {
+            "$ref": "#/components/schemas/QueryType"
+          }
+        }
+      },
+      "ChangeQueryDateRangeCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueryDateRangeDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "QueryDateRangeDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "validTill": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "GetProblematicQueriesResultItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueryDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "GetSubscriptionInfoResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SubscriptionInfoMinDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "changes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ChangeDto"
+                }
+              },
+              "queries": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/QueryDto"
+                }
+              },
+              "mappings": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/MappingDto"
+                }
+              },
+              "relatedSubscriptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SubscriptionInfoMinDto"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ChangeDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isProcessed"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "$ref": "#/components/schemas/SubscriptionChangeType"
+          },
+          "beganOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endedOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isProcessed": {
+            "type": "boolean"
+          },
+          "outdatedData": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ChangeDataDto"
+              }
+            ]
+          },
+          "currentData": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ChangeDataDto"
+              }
+            ]
+          },
+          "processings": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ChangeProcessingDto"
+            }
+          }
+        }
+      },
+      "SubscriptionChangeType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Undefined",
+          "PolicyCreated",
+          "PolicyTerminated",
+          "PolicyTerminationReverted",
+          "PolicyStartDateChanged",
+          "PolicyExpiryDateChanged",
+          "PolicyNumberChanged",
+          "PolicyStartDateReached",
+          "SubscriptionAdded",
+          "SubscriptionTerminated",
+          "SubscriptionTerminationReverted",
+          "SubscriptionExpiryDateChanged",
+          "CustomerNumberChanged",
+          "VehicleNumberChanged",
+          "UnitAssigned",
+          "UnitActivated",
+          "UnitReplacementRequested",
+          "UnitReplaced",
+          "TrackingNumberChanged",
+          "Imported",
+          "AccessChanged"
+        ],
+        "enum": [
+          "Undefined",
+          "PolicyCreated",
+          "PolicyTerminated",
+          "PolicyTerminationReverted",
+          "PolicyStartDateChanged",
+          "PolicyExpiryDateChanged",
+          "PolicyNumberChanged",
+          "PolicyStartDateReached",
+          "SubscriptionAdded",
+          "SubscriptionTerminated",
+          "SubscriptionTerminationReverted",
+          "SubscriptionExpiryDateChanged",
+          "CustomerNumberChanged",
+          "VehicleNumberChanged",
+          "UnitAssigned",
+          "UnitActivated",
+          "UnitReplacementRequested",
+          "UnitReplaced",
+          "TrackingNumberChanged",
+          "Imported",
+          "AccessChanged"
+        ]
+      },
+      "ChangeDataDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "subscriptionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "subscriptionExpiresOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "subscriptionTerminatedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "policyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "policyNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "policyStartsOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "policyExpiresOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "policyTerminatedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isPolicyStartDateLocked": {
+            "type": "boolean"
+          },
+          "vehicleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vehicleNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "unitNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitAssignedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "unitActivatedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "ChangeProcessingDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "processedOn": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "MappingDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "externalReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "policyNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "validTill": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "SubscriptionInfoMinDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "policyNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "start": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "SearchSubscriptionsResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SubscriptionDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SubscriptionDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "policyNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AddOrUpdateTenantResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TenantDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TenantDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "hostnames": {
+            "type": "string",
+            "nullable": true
+          },
+          "targetServerUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "targetTenantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "targetApiKey": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AddOrUpdateTenantCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TenantDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "AddTenantResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TenantDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "AddTenantCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TenantDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "GetAllTenantsResultItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TenantDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "GetTenantResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TenantDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "securitySchemes": {
+      "JWT": {
+        "type": "apiKey",
+        "description": "Type into the textbox: Bearer {your JWT token}.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "JWT": []
+    }
+  ]
+}

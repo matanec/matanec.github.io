@@ -1,41 +1,60 @@
-
+<!-- HTML for static distribution bundle build -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <!--<meta http-equiv="refresh" content="0; url=/Blackjack.Web" />-->
-    <title>
-      Sergejs Matancevs
-    </title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Scope API</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
     <style>
-        body {
-            font-size: .80em;
-            font-family: Arial, Helvetica, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            color: #747474;
-        }
+      html
+      {
+        box-sizing: border-box;
+        overflow: -moz-scrollbars-vertical;
+        overflow-y: scroll;
+      }
 
-        h2 {
-            font-size: 1.5em;
-            color: #282828;
-            padding-bottom: 7px;
-            border-bottom: solid 1px #DEDEDE;
-            margin-left: 5px;
-            padding-left: 5px;
-        }
+      *,
+      *:before,
+      *:after
+      {
+        box-sizing: inherit;
+      }
+
+      body
+      {
+        margin:0;
+        background: #fafafa;
+      }
     </style>
+  </head>
 
-</head>
-<body>
-	<h2>Sergejs Matancevs</h2>
-    <ul>
-        <li>
-            <a href="https://www.linkedin.com/in/sergejs-matancevs-51bbba29/">LinkedIn</a><br />
-        </li>
-    </ul>
-</body>
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script src="./swagger-ui-bundle.js" charset="UTF-8"> </script>
+    <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+    <script>
+    window.onload = function() {
+      // Begin Swagger UI call region
+      const ui = SwaggerUIBundle({
+          url: "specs/Portal proxy API for GZone2 (swagger).json",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      });
+      // End Swagger UI call region
+
+      window.ui = ui;
+    };
+  </script>
+  </body>
 </html>

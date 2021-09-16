@@ -1,0 +1,2668 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Connected Car portal API to proxy GZone2",
+    "description": "Current documentation contains only Connected Car API that only relates to Gamification platform (GZone2). Portal control access rights of the players, therefore those API that has /Subscriptions/{subscription_id} should be called only by the END USERS (to correctly resolve player name) with subscription id that belongs to that user. All other API calls are only available for admins! Subscription is a policy/vehicle/unit entity that is used in portal and user can have multiple subscriptions (i.e. policies/vehicles)",
+    "version": "public"
+  },
+  "paths": {
+    "/api/GamificationZone/Games": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Get all games (authenticated by admin)",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GameGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Games/{name}/Statistics": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Get game statistics by name (authenticated by admin)",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "periodFrom",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "periodTo",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GameStatisticsGetModel"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Games/{name}/Rounds": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Get game rounds by name (authenticated by admin)",
+        "description": "Rounds can be completed or in progress.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Game name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Round creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Round creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "startOnFrom",
+            "in": "query",
+            "description": "Round start date range from. If game period is daily, weekly, monthly or yearly round start date is start of the period, otherwise start date is same as creation date. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "startOnTo",
+            "in": "query",
+            "description": "Round start date range to. If game period is daily, weekly, monthly or yearly round start date is start of the period, otherwise start date is same as creation date. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GameRoundGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Games/{name}/Transactions": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Get game transactions by name (authenticated by admin)",
+        "description": "Transaction is generated when player completes a game.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Game name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Transaction creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Transaction creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GameTransactionGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Games/{name}/Players": {
+      "get": {
+        "tags": [
+          "Games"
+        ],
+        "summary": "Get players who can participate in game by name (authenticated by admin)",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GamePlayerGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Images/{id}": {
+      "get": {
+        "tags": [
+          "Images"
+        ],
+        "summary": "Get image by internal id",
+        "description": "If width is not specified, full size image is returned",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/GamificationZone/Leaderboards": {
+      "get": {
+        "tags": [
+          "Leaderboards"
+        ],
+        "summary": "Get leaderboards (authenticated by admin)",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaderboardGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Leaderboards/{name}/Statistics": {
+      "get": {
+        "tags": [
+          "Leaderboards"
+        ],
+        "summary": "Get leaderboard statistics by name (authenticated by admin)",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "periodFrom",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "periodTo",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeaderboardStatisticsGetModel"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Leaderboards/{name}/Rounds": {
+      "get": {
+        "tags": [
+          "Leaderboards"
+        ],
+        "summary": "Get leaderboard rounds by name (authenticated by admin)",
+        "description": "Rounds can be completed or in progress.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Leaderboard name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Round creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Round creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "startOnFrom",
+            "in": "query",
+            "description": "Round start date range from. If leaderboard period is daily, weekly, monthly or yearly round start date is start of the period, otherwise start date is same as creation date. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "startOnTo",
+            "in": "query",
+            "description": "Round start date range to. If leaderboard period is daily, weekly, monthly or yearly round start date is start of the period, otherwise start date is same as creation date. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaderboardRoundGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Leaderboards/{name}/Transactions": {
+      "get": {
+        "tags": [
+          "Leaderboards"
+        ],
+        "summary": "Get leaderboard transactions by name (authenticated by admin)",
+        "description": "Transaction is generated when player completes a leaderboard.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Leaderboard name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Transaction creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Transaction creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaderboardTransactionGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Leaderboards/{name}/Players": {
+      "get": {
+        "tags": [
+          "Leaderboards"
+        ],
+        "summary": "Get players who can participate in leaderboard by name (authenticated by admin)",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaderboardPlayerGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Levels": {
+      "get": {
+        "tags": [
+          "Levels"
+        ],
+        "summary": "Get configured experience levels (authenticated by admin)",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LevelListGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Notifications": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Get notifications for all players (authenticated by admin)",
+        "parameters": [
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Notification creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Notification creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificationGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+	 "/api/GamificationZone/Players/list": {
+      "post": {
+        "tags": [
+          "Players"
+        ],
+        "summary": "Get players for tenant by input player name list (authenticated by admin)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayerGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Players": {
+      "post": {
+        "tags": [
+          "Players"
+        ],
+        "summary": "Add new player (authenticated by admin)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlayerPostModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+	 "/api/GamificationZone/Players/Mappings": {
+      "post": {
+        "tags": [
+          "Players"
+        ],
+        "summary": "Add new player mapping (authenticated by admin)",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PlayerMappingPostModel"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Subscriptions/{subscription_id}": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get player by subscription id (authenticated by End-User with access to subscription)",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+			"description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayerGetModel"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Edit existing player by name (authenticated by admin)",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+			"description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlayerPutModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+   
+    "/api/GamificationZone/Subscriptions/{subscription_id}/Rounds": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get player game rounds by subscription id (authenticated by End-User with access to subscription)",
+        "description": "Rounds can be completed or in progress.",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Round creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Round creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "startOnFrom",
+            "in": "query",
+            "description": "Round start date range from. If game period is daily, weekly, monthly or yearly round start date is start of the period, otherwise start date is same as creation date. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "startOnTo",
+            "in": "query",
+            "description": "Round start date range to. If game period is daily, weekly, monthly or yearly round start date is start of the period, otherwise start date is same as creation date. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayerRoundGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Subscriptions/{subscription_id}/Games/Rounds": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get player game rounds by subscription id (authenticated by End-User with access to subscription)",
+        "description": "Rounds can be completed or in progress.",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Round creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Round creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "startOnFrom",
+            "in": "query",
+            "description": "Round start date range from. If game period is daily, weekly, monthly or yearly round start date is start of the period, otherwise start date is same as creation date. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "startOnTo",
+            "in": "query",
+            "description": "Round start date range to. If game period is daily, weekly, monthly or yearly round start date is start of the period, otherwise start date is same as creation date. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayerRoundGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Subscriptions/{subscription_id}/Leaderboards/Rounds": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get player leaderboards rounds by subscription id (authenticated by End-User with access to subscription)",
+        "description": "Rounds can be completed or in progress.",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Round creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Round creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "startOnFrom",
+            "in": "query",
+            "description": "Round start date range from. If game period is daily, weekly, monthly or yearly round start date is start of the period, otherwise start date is same as creation date. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "startOnTo",
+            "in": "query",
+            "description": "Round start date range to. If game period is daily, weekly, monthly or yearly round start date is start of the period, otherwise start date is same as creation date. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayerRoundGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Subscriptions/{subscription_id}/Leaderboards/{leaderboardName}/Rank": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get player rank by name and leaderboard together with other rival scores (authenticated by End-User with access to subscription)",
+        "description": "Rounds can be completed or in progress. Rivals will not include player himslef.",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "leaderboardName",
+            "in": "path",
+            "description": "Leaderboard name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startOn",
+            "in": "query",
+            "description": "Round start date. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "rankFrom",
+            "in": "query",
+            "description": "Rival rank from.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "rankTo",
+            "in": "query",
+            "description": "Rival rank to.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayerLeaderboardRankGetModel"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Subscriptions/{subscription_id}/Games": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get player games by subscription id (authenticated by End-User with access to subscription)",
+        "description": "Only games which player can start. If game is started, it won't be returned. Also affected by game parameter: Max Occurrences.",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+			"description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GameGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Subscriptions/{subscription_id}/Leaderboards": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get player leaderboards by subscription id (authenticated by End-User with access to subscription)",
+        "description": "Only leaderboards which player can start. If leaderboard is started, it won't be returned.",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+			"description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaderboardGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Subscriptions/{subscription_id}/Transactions": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get player transactions by subscription id (authenticated by End-User with access to subscription)",
+        "description": "Transaction is generated when player completes a game or leaderboard.",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Transaction creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Transaction creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayerTransactionGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Post player transaction by name (authenticated by admin)",
+        "description": "Transaction is generated when player completes a game or leaderboard.",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "required": true,
+			"description": "Subscription id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlayerTransactionPostModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+   
+    "/api/GamificationZone/Subscriptions/{subscription_id}/Notifications": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get player notifications by subscription id (authenticated by End-User with access to subscription)",
+        "description": "Notification is generated if tenant notification setup is done.",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Notification creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Notification creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlayerNotificationGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Subscriptions/{subscription_id}/Notifications/{id}": {
+      "get": {
+        "tags": [
+          "Subscriptions"
+        ],
+        "summary": "Get player notification by id (authenticated by End-User with access to subscription)",
+        "description": "Notification is generated if tenant notification setup is done.",
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "Subscription id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Notification identifier",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayerNotificationGetModel"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Tenant/self": {
+      "get": {
+        "tags": [
+          "Tenant"
+        ],
+        "summary": "Get current tenant info (authenticated by admin)",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TenantSelfGetModel"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		  "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/GamificationZone/Transactions": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Get transactions for all players (authenticated by admin)",
+        "parameters": [
+          {
+            "name": "createdOnFrom",
+            "in": "query",
+            "description": "Transaction creation date range from. Sample format: \"2019-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdOnTo",
+            "in": "query",
+            "description": "Transaction creation date range to. Sample format: \"2020-09-16T08:44:29.686Z\".",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TransactionGetModel"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+		   "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BigInteger": {
+        "type": "object",
+        "properties": {
+          "isPowerOfTwo": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isZero": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isOne": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isEven": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "sign": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GameGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {},
+            "nullable": true
+          },
+          "startOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "publishedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "isDisabled": {
+            "type": "boolean"
+          },
+          "blockchainAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "maxOccurrencesPlayer": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxOccurrencesGlobal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "experience": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currency": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rewards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlayerGameRewardGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Game model"
+      },
+      "GamePlayerGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "nullable": true,
+            "example": "example"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "nullable": true,
+            "example": "example"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GameRoundGetModel": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "$ref": "#/components/schemas/GamePlayerGetModel"
+          },
+          "startOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isObjectiveAchieved": {
+            "type": "boolean",
+            "description": "Current result of game evaluation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GameStatisticsGetModel": {
+        "type": "object",
+        "properties": {
+          "experienceRewareded": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currencyRewareded": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rewardsRewarded": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "playersQualified": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "blockchainBalance": {
+            "$ref": "#/components/schemas/BigInteger"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GameTransactionGetModel": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "experience": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "round": {
+            "$ref": "#/components/schemas/GameRoundGetModel"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rewards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlayerGameRewardGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeaderboardGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {},
+            "nullable": true
+          },
+          "startOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "publishedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          },
+          "isDisabled": {
+            "type": "boolean"
+          },
+          "blockchainAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "rankRewards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlayerLeaderboardRankRewardGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Leaderboard model"
+      },
+      "LeaderboardPlayerGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "nullable": true,
+            "example": "example"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "nullable": true,
+            "example": "example"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeaderboardRoundGetModel": {
+        "type": "object",
+        "properties": {
+          "player": {
+            "$ref": "#/components/schemas/GamePlayerGetModel"
+          },
+          "startOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isObjectiveAchieved": {
+            "type": "boolean",
+            "description": "Current result of game evaluation"
+          },
+          "rank": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeaderboardStatisticsGetModel": {
+        "type": "object",
+        "properties": {
+          "experienceRewareded": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currencyRewareded": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rewardsRewarded": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "playersQualified": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "blockchainBalance": {
+            "$ref": "#/components/schemas/BigInteger"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeaderboardTransactionGetModel": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "experience": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "round": {
+            "$ref": "#/components/schemas/GameRoundGetModel"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rewards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlayerGameRewardGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LevelListGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "experienceFrom": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "experienceTo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "imageId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NotificationGetModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "$ref": "#/components/schemas/NotificationType"
+          },
+          "round": {
+            "$ref": "#/components/schemas/PlayerRoundGetModel"
+          },
+          "player": {
+            "$ref": "#/components/schemas/TransactionPlayerGetModel"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NotificationType": {
+        "enum": [
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Period": {
+        "enum": [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          114,
+          120,
+          130,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          300,
+          301,
+          302,
+          303,
+          306,
+          400,
+          401
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PlayerGameRewardGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "nullable": true,
+            "example": "example"
+          },
+          "experience": {
+            "type": "integer",
+            "description": "Experience point balance",
+            "format": "int32"
+          },
+          "currency": {
+            "type": "integer",
+            "description": "Currency balance",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDisabled": {
+            "type": "boolean"
+          },
+          "imageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "blockchainAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "blockchainBalance": {
+            "$ref": "#/components/schemas/BigInteger"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Player Model"
+      },
+      "PlayerLeaderboardRankGetModel": {
+        "type": "object",
+        "properties": {
+          "rank": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          },
+          "rivals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlayerLeaderboardRankModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerLeaderboardRankModel": {
+        "type": "object",
+        "properties": {
+          "rank": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          },
+          "player": {
+            "$ref": "#/components/schemas/GamePlayerGetModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerLeaderboardRankRewardGetModel": {
+        "type": "object",
+        "properties": {
+          "experience": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "currency": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "rankFrom": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rankTo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rewards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlayerLeaderboardRewardGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerLeaderboardRewardGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerMappingPostModel": {
+        "required": [
+          "policyNo",
+          "unitNo",
+          "vehicleNo"
+        ],
+        "type": "object",
+        "properties": {
+          "customerNo": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "Name",
+            "nullable": true,
+            "example": "example"
+          },
+          "policyNo": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "vehicleNo": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "unitNo": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "driverNo": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "Only for tenants with Player Source: Driver",
+            "nullable": true
+          },
+          "playerDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "startOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "subscriptionChangeType": {
+            "$ref": "#/components/schemas/SubscriptionChangeType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerNotificationGetModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "$ref": "#/components/schemas/NotificationType"
+          },
+          "round": {
+            "$ref": "#/components/schemas/PlayerRoundGetModel"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerPostModel": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "Name",
+            "example": "example"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerPutModel": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "Name",
+            "example": "example"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Player Model"
+      },
+      "PlayerRoundGetModel": {
+        "type": "object",
+        "properties": {
+          "leaderboard": {
+            "$ref": "#/components/schemas/LeaderboardGetModel"
+          },
+          "game": {
+            "$ref": "#/components/schemas/GameGetModel"
+          },
+          "startOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "completedOn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isObjectiveAchieved": {
+            "type": "boolean",
+            "description": "Current result of game evaluation"
+          },
+          "rank": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerSource": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PlayerTransactionGetModel": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "experience": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "round": {
+            "$ref": "#/components/schemas/PlayerRoundGetModel"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rewards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PlayerGameRewardGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PlayerTransactionPostModel": {
+        "required": [
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubscriptionChangeType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10,
+          11,
+          12,
+          13,
+          20,
+          30,
+          40,
+          41,
+          42,
+          43,
+          45,
+          50,
+          60
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "TenantSelfGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDisabled": {
+            "type": "boolean"
+          },
+          "timeZone": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "playerSource": {
+            "$ref": "#/components/schemas/PlayerSource"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionGetModel": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "experience": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "player": {
+            "$ref": "#/components/schemas/TransactionPlayerGetModel"
+          },
+          "createdOn": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rewards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionRewardGetModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionPlayerGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "nullable": true,
+            "example": "example"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description",
+            "nullable": true,
+            "example": "example"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionRewardGetModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "Standard header should be used Authorization Bearer 'token'",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
